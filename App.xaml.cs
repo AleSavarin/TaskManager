@@ -32,6 +32,10 @@ public partial class App : Application
         await AppHost.StartAsync();
 
         var mainWindow = AppHost.Services.GetRequiredService<MainWindow>();
+        var viewModel = AppHost.Services.GetRequiredService<MainViewModel>();
+
+        await viewModel.InitializeAsync();
+
         mainWindow.Show();
 
         base.OnStartup(e);
